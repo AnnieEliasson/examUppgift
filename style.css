@@ -68,3 +68,12 @@ button{
     inset 2px 2px 2px white,
     inset -2px -2px 2px black;
 }
+
+.letterBox{
+    display: flex;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-weight: bold;
+    
+}
