@@ -1,0 +1,18 @@
+#head,
+#scaffold,
+#body,
+#legs,
+#ground,
+#arms {
+    display: none;
+}
+
+#scaffold {
+    display: block;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
