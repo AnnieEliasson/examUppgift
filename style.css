@@ -29,7 +29,6 @@ body{
     justify-content: center;
     align-items: center;
     background-color: rgb(252, 252, 252);
-    width: 60%;
     padding: 2rem;
     border-radius: .5rem;
     box-shadow: 0px 0px 10px black;
@@ -75,6 +74,26 @@ button{
     display: flex;
     font-size: 2rem;
     text-transform: uppercase;
-    letter-spacing: 10px;
     font-weight: bold;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
 }
+
+.box{
+    margin: 8px;
+}
+
+@media (max-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(252, 252, 252);
+        padding: 2rem;
+        border-radius: .5rem;
+        box-shadow: 0px 0px 10px black;
+        height: 90vh;
+    }
+  }
