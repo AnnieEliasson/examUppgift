@@ -1,13 +1,13 @@
 
 // WORD ARRAY
 const arrayName = ["computer",
-    "pineapple",
-    "horse",
-    "seal",
-    "car",
-    "cloud",
-    "rainstorm",
-    "javascript"]
+  "pineapple",
+  "horse",
+  "seal",
+  "car",
+  "cloud",
+  "rainstorm",
+  "javascript"]
 
 // RANDOM WORD FROM ARRAY
 let arrayRandom = arrayName[Math.floor(Math.random() * arrayName.length)]
@@ -18,15 +18,16 @@ console.log(arrayRandom)
 for (let i = 0; i < arrayRandom.length; i++) {
     rWord += "_ ";
 }
-
 document.getElementById("rWord").innerHTML = rWord; */
+
+
 let boxNr = 0;
-for (let i = 0; i < arrayRandom.length; i++){
-    let box = document.createElement("div")
-    box.classList.add('box',boxNr)
-    box.innerText='_'
-    boxNr ++
-    document.querySelector(".letterBox").append(box)
+for (let i = 0; i < arrayRandom.length; i++) {
+  let box = document.createElement("div")
+  box.classList.add('box', boxNr)
+  box.innerText = '_'
+  boxNr++
+  document.querySelector(".letterBox").append(box)
 
 }
 
@@ -38,76 +39,97 @@ let char;
 
 button.addEventListener('click', checkChar)
 
-function checkChar(){
-    char = document.getElementById("character").value.toLowerCase()
+function checkChar() {
+  char = document.getElementById("character").value.toLowerCase()
 
-    let includes = arrayRandom.includes(char)
+  if (char === "") {
+    alert("Du måste skriva något i fältet");
+    return;
+  }
 
-    if(includes === true){
+  let includes = arrayRandom.includes(char)
+
+  if (includes === true) {
     console.log('bokstaven finns')
 
     charExist()
 
-} else{
+  } else {
     console.log('bokstaven finns inte med')
     charDoNotExist()
+  }
+
+
+  //RESET INPUT FIELD
+  document.getElementById("character").value = null
+  document.getElementById("character").focus()
 }
-
-
-//RESET INPUT FIELD
-document.getElementById("character").value = null
-document.getElementById("character").focus()
-}   
 
 // USED CHARS EXIST IN WORD
-let usedChars =[]
+let usedChars = []
 
-function charExist(){
-    usedChars.push(char)
-    console.log(usedChars)
+function charExist() {
 
-    for(let i = 0; i < arrayRandom.length; i++){
-        if (arrayRandom[i] === char){
-            console.log(i)
-            
-            document.querySelector(`.letterBox :nth-child(${i+1})`).innerText = char
-        }}
+  if (usedChars.includes(char)) {
+    return;
+  }
 
+  usedChars.push(char)
+  console.log(usedChars)
+
+  for (let i = 0; i < arrayRandom.length; i++) {
+    if (arrayRandom[i] === char) {
+      console.log(i)
+
+      document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText = char
+    }
+  }
 }
+
+
 
 let wrongChars = []
 let wrongs = 0;
-function charDoNotExist(){
-    wrongChars.push(char)
-    console.log(wrongChars)
-    
-        document.getElementById("worngChars").innerText = wrongChars
-        wrongs++
-        console.log(wrongs)
+function charDoNotExist() {
 
-        //DISPLAY HANGMAN PARTS
 
-switch(wrongs) {
+  if (wrongChars.includes(char)) {
+    return;
+  }
+
+  wrongChars.push(char)
+  console.log(wrongChars)
+
+  document.getElementById("worngChars").innerText = wrongChars
+  wrongs++
+  console.log(wrongs)
+
+  //DISPLAY HANGMAN PARTS
+
+  switch (wrongs) {
     case 1:
-        document.getElementById("ground").style.display="block"
+      document.getElementById("ground").style.display = "block"
       break;
     case 2:
-        document.getElementById("scaffold").style.display="block"
+      document.getElementById("scaffold").style.display = "block"
       break;
     case 3:
-      document.getElementById("head").style.display="block"
+      document.getElementById("head").style.display = "block"
       break;
     case 4:
-        document.getElementById("body").style.display="block"
+      document.getElementById("body").style.display = "block"
       break;
     case 5:
-        document.getElementById("arms").style.display="block"
+      document.getElementById("arms").style.display = "block"
       break;
     case 6:
-        document.getElementById("legs").style.display="block"
+      document.getElementById("legs").style.display = "block"
       break;
-      case 7:
-        console.log('game over')
+    case 7:
+      if (window.confirm("Du förlorade, vill du spela igen?")) {
+        window.open(location.reload())
+      }
+      console.log('game over')
       break;
     default:
   }
