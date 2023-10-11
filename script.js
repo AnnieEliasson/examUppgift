@@ -56,6 +56,7 @@ function checkChar(){
 
 //RESET INPUT FIELD
 document.getElementById("character").value = null
+document.getElementById("character").focus()
 }   
 
 // USED CHARS EXIST IN WORD
