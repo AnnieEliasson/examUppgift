@@ -20,6 +20,7 @@ for (let i = 0; i < arrayRandom.length; i++) {
 }
 document.getElementById("rWord").innerHTML = rWord; */
 
+<<<<<<< HEAD
 
 let boxNr = 0;
 for (let i = 0; i < arrayRandom.length; i++) {
@@ -28,6 +29,14 @@ for (let i = 0; i < arrayRandom.length; i++) {
   box.innerText = '_'
   boxNr++
   document.querySelector(".letterBox").append(box)
+=======
+for (let i = 0; i < arrayRandom.length; i++){
+    let box = document.createElement("div")
+    box.classList.add('box')
+    box.innerText='_'
+
+    document.querySelector(".letterBox").append(box)
+>>>>>>> main
 
 }
 
