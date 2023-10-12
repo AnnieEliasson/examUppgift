@@ -120,6 +120,7 @@ button {
   justify-content: center;
   letter-spacing: 5px;
   text-align: center;
+  animation: zoom 0.4s ease-in-out forwards;
 }
 
 .victoryFrame p {
