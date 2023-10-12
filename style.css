@@ -124,6 +124,7 @@ button:hover{
   left: 0px;
   color: white;
   text-shadow: 2px 2px 5px black;
+  backdrop-filter: blur(4px);
 }
 
 .victoryFrame {
@@ -167,6 +168,7 @@ button:hover{
   left: 0px;
   color: white;
   text-shadow: 2px 2px 5px black;
+  backdrop-filter: blur(4px);
 }
 
 .defeatFrame {
