@@ -93,7 +93,7 @@ function charExist() {
       if (victoryCount === arrayRandom.length) {
 
         document.getElementById("victoryScreen").style.display = "flex";
-
+        clearTimeout(timer)
 
       }
     }
@@ -137,6 +137,7 @@ function charDoNotExist() {
       document.getElementById("legs").style.display = "block"
       document.getElementById("defeatScreen").style.display = "flex";
       document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
+      clearTimeout(timer)
       break;
     case 7:
       if (window.confirm("Du förlorade, vill du spela igen?")) {
@@ -154,5 +155,23 @@ function charDoNotExist() {
 
 let playAgainButton = document.querySelectorAll(".playAgainButton")
 playAgainButton.forEach((btn) => btn.addEventListener('click', function () { location.reload() }))
+
+// TIMER
+
+let countDown = 30;
+let timer = setTimeout(ticks, 1000)
+let timeDisplay = document.getElementById("timer")
+
+function ticks(){
+  if(countDown >= 0){
+    timeDisplay.innerText = countDown
+    countDown--
+    timer = setTimeout(ticks, 1000)
+    console.log(countDown)
+  } else {
+    document.getElementById("defeatScreen").style.display = "flex";
+    document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
+  }
+}
 
 
