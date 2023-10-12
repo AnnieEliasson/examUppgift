@@ -13,6 +13,8 @@ const arrayName = ["computer",
 let arrayRandom = arrayName[Math.floor(Math.random() * arrayName.length)]
 console.log(arrayRandom)
 
+
+
 // WRITE LINES FOR CHARACTERS
 /* let rWord = "";
 for (let i = 0; i < arrayRandom.length; i++) {
@@ -20,23 +22,23 @@ for (let i = 0; i < arrayRandom.length; i++) {
 }
 document.getElementById("rWord").innerHTML = rWord; */
 
-
+// WRITE LINES FOR CHARACTERS, ALT 2
 
 for (let i = 0; i < arrayRandom.length; i++) {
   let box = document.createElement("div")
   box.classList.add('box')
   box.innerText = '_'
   document.querySelector(".letterBox").append(box)
-
 }
 
-
-
-const button = document.getElementById("button");
+//VARIABEL FÖR INMATAD BOKSTAV
 let char;
 
-
+//GUESS BUTTON
+const button = document.getElementById("button");
 button.addEventListener('click', checkChar)
+
+
 
 function checkChar() {
   char = document.getElementById("character").value.toLowerCase()
@@ -52,12 +54,10 @@ function checkChar() {
     console.log('bokstaven finns')
 
     charExist()
-
   } else {
     console.log('bokstaven finns inte med')
     charDoNotExist()
   }
-
 
   //RESET INPUT FIELD
   document.getElementById("character").value = null
@@ -66,6 +66,9 @@ function checkChar() {
 
 // USED CHARS EXIST IN WORD
 let usedChars = []
+let victoryCount = 0;
+
+
 
 function charExist() {
 
@@ -76,21 +79,25 @@ function charExist() {
   usedChars.push(char)
   console.log(usedChars)
 
-  for (let i = 0; i < arrayRandom.length; i++) {
+  for (let i = 0; i <= arrayRandom.length; i++) {
+    
     if (arrayRandom[i] === char) {
+      document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText = char 
+      victoryCount++
       console.log(i)
+      if(victoryCount === arrayRandom.length){
+      
+        document.getElementById("victoryScreen").style.display = "flex";
+              
 
-      document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText = char
-    }
+      }
+    } 
   }
 }
-
-
 
 let wrongChars = []
 let wrongs = 0;
 function charDoNotExist() {
-
 
   if (wrongChars.includes(char)) {
     return;
@@ -123,6 +130,8 @@ function charDoNotExist() {
       break;
     case 6:
       document.getElementById("legs").style.display = "block"
+      document.getElementById("defeatScreen").style.display = "flex";
+      document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
       break;
     case 7:
       if (window.confirm("Du förlorade, vill du spela igen?")) {
@@ -134,3 +143,11 @@ function charDoNotExist() {
   }
 
 }
+
+
+// Play Again Button
+
+let playAgainButton = document.querySelectorAll(".playAgainButton")
+playAgainButton.forEach((btn) => btn.addEventListener('click', function(){location.reload()}))
+
+

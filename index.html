@@ -60,18 +60,33 @@
       </svg>
       <section>
         
-
         <h1 id="rWord"></h1>
         <div class="letterBox">
         </div>
         <input id="character" type="text" placeholder="A" maxlength="1" />
         <button id="button" type="submit">Guess!</button>
 
-        <h2>Used characters:</h2>
-        <p id="worngChars"></p>
-        
+        <div class="wrongCharCntainer">
+          <h2>Used characters:</h2>
+          <p id="worngChars"></p>
+        </div>
         
       </section>
+    </div>
+    <div id="victoryScreen">
+      <div class="victoryFrame">
+          <h3>VICTORY</h3>
+          <button class="playAgainButton">PLAY AGAIN</button>
+        </div>
+    </div>
+
+
+    <div id="defeatScreen">
+      <div class="defeatFrame">
+          <h3>DEFEAT</h3>
+          <p>Correct word: <span id="correctWord"></span></p>
+          <button class="playAgainButton">PLAY AGAIN</button>
+        </div>
     </div>
     <script src="script.js"></script>
   </body>
