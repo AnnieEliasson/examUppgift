@@ -38,7 +38,12 @@ let char;
 const button = document.getElementById("button");
 button.addEventListener('click', checkChar)
 
-
+document.addEventListener('keydown', function (enter) {
+  if (enter.key === 'Enter') {
+    button.click();
+    console.log("Enter trycktes ner")
+  }
+});
 
 function checkChar() {
   char = document.getElementById("character").value.toLowerCase()
@@ -80,18 +85,18 @@ function charExist() {
   console.log(usedChars)
 
   for (let i = 0; i <= arrayRandom.length; i++) {
-    
+
     if (arrayRandom[i] === char) {
-      document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText = char 
+      document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText = char
       victoryCount++
       console.log(i)
-      if(victoryCount === arrayRandom.length){
-      
+      if (victoryCount === arrayRandom.length) {
+
         document.getElementById("victoryScreen").style.display = "flex";
-              
+
 
       }
-    } 
+    }
   }
 }
 
@@ -148,6 +153,6 @@ function charDoNotExist() {
 // Play Again Button
 
 let playAgainButton = document.querySelectorAll(".playAgainButton")
-playAgainButton.forEach((btn) => btn.addEventListener('click', function(){location.reload()}))
+playAgainButton.forEach((btn) => btn.addEventListener('click', function () { location.reload() }))
 
 
