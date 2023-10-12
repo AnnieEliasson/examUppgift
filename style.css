@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Shadows+Into+Light&display=swap');
 
 
 #head,
@@ -74,6 +74,7 @@ button {
   cursor: pointer;
   background-color: rgb(49, 66, 80);
   font-size: 2rem;
+  font-family: 'Lilita One', sans-serif;
   color: white;
   text-shadow: 2px 2px 2px black;
   box-shadow: 5px 5px 10px black, inset 2px 2px 2px white,
@@ -101,6 +102,7 @@ button:hover{
 .wrongCharCntainer {
   height: 100px;
   margin-top: 30px;
+  font-family: 'Lilita One', sans-serif;
 }
 
 .wrongCharCntainer p {

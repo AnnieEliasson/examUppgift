@@ -158,7 +158,7 @@ playAgainButton.forEach((btn) => btn.addEventListener('click', function () { loc
 
 // TIMER
 
-let countDown = 30;
+let countDown = 60;
 let timer = setTimeout(ticks, 1000)
 let timeDisplay = document.getElementById("timer")
 
@@ -167,7 +167,6 @@ function ticks(){
     timeDisplay.innerText = countDown
     countDown--
     timer = setTimeout(ticks, 1000)
-    console.log(countDown)
   } else {
     document.getElementById("defeatScreen").style.display = "flex";
     document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
