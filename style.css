@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Luckiest+Guy&family=Shadows+Into+Light&family=Young+Serif&display=swap');
 
 
 #head,
@@ -18,6 +18,8 @@
 }
 
 body {
+  background-image: url(images/bg2.png);
+  background-size: cover;
   height: 100vh;
   width: 100vw;
   background-color: gray;
@@ -31,8 +33,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(252, 252, 252);
+  background: rgb(184,187,201);
+  background: rgb(47,73,89);
+  background: linear-gradient(0deg, rgb(68, 83, 87) 0%, rgb(180, 180, 180) 100%);
   padding: 2rem;
+  border: 1px solid rgb(5, 5, 5);
   border-radius: 0.5rem;
   box-shadow: 0px 0px 10px black;
   height: 90vh;
@@ -128,8 +133,9 @@ button:hover{
 }
 
 .victoryFrame {
-  background-color: rgb(46, 46, 46);
+  background-color: rgb(49, 58, 63);
   background-image: url(images/534324_71cd8.gif);
+  font-family: 'Lilita One', sans-serif;
   background-size: cover;
   padding: 2rem;
   border: 1px solid white;
@@ -141,9 +147,8 @@ button:hover{
   letter-spacing: 5px;
   text-align: center;
   animation: zoom 0.4s ease-in-out forwards;
-  font-family: 'Luckiest Guy', cursive;
   text-shadow: 5px 5px 5px black;
-  color: rgb(95, 131, 160);
+  color: rgb(215, 222, 229);
 }
 
 .victoryFrame h3{
@@ -172,8 +177,8 @@ button:hover{
 }
 
 .defeatFrame {
-  background-color: rgb(46, 46, 46);
-  font-family: 'Luckiest Guy', cursive;
+  background-color: rgb(49, 58, 63);
+  font-family: 'Lilita One', sans-serif;
   text-shadow: 5px 5px 5px black;
   padding: 2rem;
   border: 1px solid white;
@@ -188,7 +193,7 @@ button:hover{
 }
 
 .defeatFrame h3{
-    color: rgb(95, 131, 160);
+    color: rgb(136, 77, 77);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
@@ -197,6 +202,13 @@ button:hover{
   text-align: center;
   font-size: 1.3rem;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 2px black;
+}
+
+#correctWord{
+  color: rgb(169, 199, 224);
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 @keyframes zoom {
@@ -212,31 +224,3 @@ h3 {
   text-align: center;
   margin-bottom: 1rem;
 }
-
-/* @media (max-width: 800px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: rgb(252, 252, 252);
-        padding: 2rem;
-        border-radius: .5rem;
-        box-shadow: 0px 0px 10px black;
-        height: 90vh;
-    }
-
-    .victoryFrame{
-        background-color: rgb(46, 46, 46);
-        padding: 2rem;
-        border: 1px solid white;
-        border-radius: 1rem;
-        box-shadow: 0px 0px 10px black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        letter-spacing: 5px;
-        margin-top: -380px;
-    }
-  }
- */
