@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon" />
     <title>Hangman</title>
   </head>
 
   <body>
     <div class="container">
+      <div class="hintClickBox"></div>
+        <div class="hint">
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      
       <p id="timer"></p>
       <p id="pulsingTimer">3</p>
 
@@ -63,10 +68,7 @@
         />
       </svg>
       <section>
-        
-        <h1 id="rWord"></h1>
-        <div class="letterBox">
-        </div>
+        <div class="letterBox"></div>
         <input id="character" type="text" placeholder="A" maxlength="1" />
         <button id="button" type="submit">Guess!</button>
 
@@ -74,7 +76,7 @@
           <h2>Used characters:</h2>
           <p id="worngChars"></p>
         </div>
-        
+
         <div class="health">
           <div class="points"></div>
           <div class="points"></div>
@@ -87,18 +89,17 @@
     </div>
     <div id="victoryScreen">
       <div class="victoryFrame">
-          <h3>VICTORY</h3>
-          <button class="playAgainButton">PLAY AGAIN</button>
-        </div>
+        <h3>VICTORY</h3>
+        <button class="playAgainButton">PLAY AGAIN</button>
+      </div>
     </div>
-
 
     <div id="defeatScreen">
       <div class="defeatFrame">
-          <h3>Defeat</h3>
-          <p>Correct word: <span id="correctWord"></span></p>
-          <button class="playAgainButton">PLAY AGAIN</button>
-        </div>
+        <h3>Defeat</h3>
+        <p>Correct word: <span id="correctWord"></span></p>
+        <button class="playAgainButton">PLAY AGAIN</button>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

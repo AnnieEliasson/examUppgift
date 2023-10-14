@@ -189,3 +189,17 @@ function ticks(){
 }
 
 
+// HINT
+
+let hint = document.querySelector('.hint')
+let clickBox = document.querySelector('.hintClickBox')
+
+clickBox.addEventListener('click', function(){
+
+    hint.classList.add("peak")
+
+    setTimeout(() => {
+      hint.classList.remove("peak")
+    }, 4000)
+    
+})
