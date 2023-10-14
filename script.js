@@ -93,6 +93,7 @@ function charExist() {
       if (victoryCount === arrayRandom.length) {
 
         document.getElementById("victoryScreen").style.display = "flex";
+        puls.style.display = "none"
         clearTimeout(timer)
 
       }
@@ -120,21 +121,28 @@ function charDoNotExist() {
   switch (wrongs) {
     case 1:
       document.getElementById("ground").style.display = "block"
+      document.querySelector(`.health :nth-child(6)`).classList.add("wasted")
       break;
     case 2:
       document.getElementById("scaffold").style.display = "block"
+      document.querySelector(`.health :nth-child(5)`).classList.add("wasted")
       break;
     case 3:
       document.getElementById("head").style.display = "block"
+      document.querySelector(`.health :nth-child(4)`).classList.add("wasted")
       break;
     case 4:
       document.getElementById("body").style.display = "block"
+      document.querySelector(`.health :nth-child(3)`).classList.add("wasted")
       break;
     case 5:
       document.getElementById("arms").style.display = "block"
+      document.querySelector(`.health :nth-child(2)`).classList.add("wasted")
       break;
     case 6:
       document.getElementById("legs").style.display = "block"
+      document.querySelector(`.health :nth-child(1)`).classList.add("wasted")
+      puls.style.display = "none"
       document.getElementById("defeatScreen").style.display = "flex";
       document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
       clearTimeout(timer)
@@ -161,9 +169,16 @@ playAgainButton.forEach((btn) => btn.addEventListener('click', function () { loc
 let countDown = 60;
 let timer = setTimeout(ticks, 1000)
 let timeDisplay = document.getElementById("timer")
+let puls = document.getElementById("pulsingTimer")
 
 function ticks(){
-  if(countDown >= 0){
+  if(countDown >= 4){
+    timeDisplay.innerText = countDown
+    countDown--
+    timer = setTimeout(ticks, 1000)
+  } else if(countDown >= 0) {
+    puls.style.display = "block"
+    puls.innerText = countDown
     timeDisplay.innerText = countDown
     countDown--
     timer = setTimeout(ticks, 1000)
