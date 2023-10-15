@@ -1,3 +1,7 @@
+let textField = document.getElementById("character")
+textField.focus()
+
+document.addEventListener('click', () => {textField.focus()})
 
 // WORD ARRAY
 const arrayName = ["computer",
@@ -12,8 +16,6 @@ const arrayName = ["computer",
 // RANDOM WORD FROM ARRAY
 let arrayRandom = arrayName[Math.floor(Math.random() * arrayName.length)]
 console.log(arrayRandom)
-
-
 
 // WRITE LINES FOR CHARACTERS
 /* let rWord = "";
@@ -49,7 +51,7 @@ function checkChar() {
   char = document.getElementById("character").value.toLowerCase()
 
   if (char === "") {
-    alert("Du måste skriva något i fältet");
+    /* alert("Du måste skriva något i fältet"); */
     return;
   }
 
@@ -65,8 +67,8 @@ function checkChar() {
   }
 
   //RESET INPUT FIELD
-  document.getElementById("character").value = null
-  document.getElementById("character").focus()
+  textField.value = null
+  textField.focus()
 }
 
 // USED CHARS EXIST IN WORD
@@ -95,6 +97,12 @@ function charExist() {
         document.getElementById("victoryScreen").style.display = "flex";
         puls.style.display = "none"
         clearTimeout(timer)
+
+        document.addEventListener('keydown', function (enter) {
+          if (enter.key === 'Enter') {
+            location.reload()
+          }
+        });
 
       }
     }
@@ -146,12 +154,11 @@ function charDoNotExist() {
       document.getElementById("defeatScreen").style.display = "flex";
       document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
       clearTimeout(timer)
-      break;
-    case 7:
-      if (window.confirm("Du förlorade, vill du spela igen?")) {
-        window.open(location.reload())
-      }
-      console.log('game over')
+      document.addEventListener('keydown', function (enter) {
+        if (enter.key === 'Enter') {
+          location.reload()
+        }
+      });
       break;
     default:
   }
@@ -185,9 +192,13 @@ function ticks(){
   } else {
     document.getElementById("defeatScreen").style.display = "flex";
     document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
+    document.addEventListener('keydown', function (enter) {
+      if (enter.key === 'Enter') {
+        location.reload()
+      }
+    });
   }
 }
-
 
 // HINT
 
@@ -197,9 +208,19 @@ let clickBox = document.querySelector('.hintClickBox')
 clickBox.addEventListener('click', function(){
 
     hint.classList.add("peak")
+    document.getElementById("character").focus()
 
     setTimeout(() => {
       hint.classList.remove("peak")
     }, 4000)
     
 })
+
+// MUSIC 
+
+/* window.addEventListener("DOMContentLoaded", event => {
+  const audio = document.querySelector("audio");
+  audio.volume = 0.2;
+  audio.play();
+});
+ */

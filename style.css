@@ -25,6 +25,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: url('images/aim-svgrepo-com.svg'), auto;
+}
+
+.music{
+  position: absolute;
+  top: 10px;
+  left: 410px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(157, 156, 156);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0px solid black;
+  border-radius: 50%;
+  box-shadow: inset 1px 1px 2px white, inset -2px -2px 5px black,
+  0px 0px 3px black;
+}
+
+.music:hover{
+  background-color: rgb(123, 123, 129);
+  cursor: pointer;
+}
+
+audio{
+  display: none;
 }
 
 .hint{
@@ -54,6 +80,7 @@ body {
   position: absolute;
   left: 466px;
   top: 150px;
+  cursor: help;
 }
 
 .hint p{
@@ -110,15 +137,26 @@ section {
 }
 
 input {
-  width: 100px;
-  height: 100px;
+  width: 250px;
   font-size: 3rem;
   text-align: center;
   display: block;
-  margin: 2rem auto 2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px black;
-  box-shadow: 2px 2px 2px black;
+/*   box-shadow: 2px 2px 2px black; */
+  caret-color: transparent;
+  background-color: transparent;
+  border: 0;
+}
+
+input:focus{
+  outline: none;
+}
+
+input::placeholder{
+  font-size: 1.3rem;
 }
 
 .health{
@@ -154,6 +192,7 @@ button {
   text-shadow: 2px 2px 2px black;
   box-shadow: 5px 5px 10px black, inset 2px 2px 2px white,
     inset -2px -2px 2px black;
+  cursor: url('images/aim-svgrepo-com.svg'), auto;
 }
 
 button:hover{
