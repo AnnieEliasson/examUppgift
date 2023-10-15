@@ -9,11 +9,19 @@
   </head>
 
   <body>
+    
     <div class="container">
+      <audio id="bgMusic" src="audio/sad-moment-sad-and-melancholy-piano-background-music-124488.mp3"></audio>
+      <audio id="pop" src="audio/pop-up-something-160353.mp3"></audio>
+      <audio id="fail" src="audio/sadwhisle-91469.mp3"></audio>
+
       <div class="hintClickBox"></div>
-      <div class="hint">
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
+        <div class="hint">
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      
+      <p id="timer"></p>
+      <p id="pulsingTimer">3</p>
 
       <svg
         width="401"
@@ -65,14 +73,8 @@
         />
       </svg>
       <section>
-        <div class="letterBox">_ _ _ _</div>
-        <input
-          id="character"
-          type="text"
-          placeholder=" press keyboard a - z"
-          maxlength="1"
-          onkeydown="return /[a-z]/i.test(event.key)"
-        />
+        <div class="letterBox"></div>
+        <input id="character" type="text" placeholder=" press keyboard a - z" maxlength="1" onkeydown="return /[a-z]/i.test(event.key)" />
         <button id="button" type="submit">Guess!</button>
 
         <div class="wrongCharCntainer">
@@ -90,16 +92,20 @@
         </div>
       </section>
     </div>
-
-    <div class="startScreen">
-      <div class="start-wrapper">
-        <h1>HANGMAN</h1>
-        <a id="first-play-button" href="hangman.html">PLAY</a>
-
-        <img class="noose" src="images/noose.png" alt="" />
+    <div id="victoryScreen">
+      <div class="victoryFrame">
+        <h3>VICTORY</h3>
+        <button class="playAgainButton">PLAY AGAIN</button>
       </div>
     </div>
 
+    <div id="defeatScreen">
+      <div class="defeatFrame">
+        <h3>Defeat</h3>
+        <p>Correct word: <span id="correctWord"></span></p>
+        <button class="playAgainButton">PLAY AGAIN</button>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

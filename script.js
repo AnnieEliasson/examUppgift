@@ -1,6 +1,15 @@
 let textField = document.getElementById("character")
 textField.focus()
 
+let bgMusic = document.getElementById("bgMusic")
+bgMusic.play();
+let popSound = document.getElementById("pop");
+let failSound = document.getElementById("fail");
+
+
+// start
+
+
 document.addEventListener('click', () => {textField.focus()})
 
 // WORD ARRAY
@@ -91,6 +100,7 @@ function charExist() {
     if (arrayRandom[i] === char) {
       document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText = char
       victoryCount++
+      popSound.play();
       console.log(i)
       if (victoryCount === arrayRandom.length) {
 
@@ -122,6 +132,7 @@ function charDoNotExist() {
 
   document.getElementById("worngChars").innerText = wrongChars
   wrongs++
+  failSound.play()
   console.log(wrongs)
 
   //DISPLAY HANGMAN PARTS

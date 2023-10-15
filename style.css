@@ -28,25 +28,66 @@ body {
   cursor: url('images/aim-svgrepo-com.svg'), auto;
 }
 
-.music{
-  position: absolute;
-  top: 10px;
-  left: 410px;
-  width: 40px;
-  height: 40px;
-  background-color: rgb(157, 156, 156);
+.startScreen {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 0px solid black;
-  border-radius: 50%;
-  box-shadow: inset 1px 1px 2px white, inset -2px -2px 5px black,
-  0px 0px 3px black;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(22, 28, 34, 0.606);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  text-shadow: 2px 2px 5px black;
+  backdrop-filter: blur(4px);
 }
 
-.music:hover{
-  background-color: rgb(123, 123, 129);
-  cursor: pointer;
+h1{
+  font-family: 'Lilita One', sans-serif;
+  font-size: 10rem;
+  color: rgb(209, 208, 201);
+  text-shadow: 5px 5px 10px black;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  opacity: 0.9;
+}
+
+#first-play-button{
+  font-family: 'Lilita One', sans-serif;
+  font-size: 5rem;
+  background-color: rgba(16, 17, 19, 0.664);
+  color: rgb(235, 235, 235);
+  padding: 2rem 5rem;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px black, inset 1px 1px 2px white, inset -2px -2px 5px black;
+  transition: background-color 0.5s;
+}
+
+#first-play-button:hover{
+  background-color: transparent;
+}
+
+.start-wrapper{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.noose{
+  position: absolute;
+  right: -100px;
+  animation: noose 2.5s 1s ease-in-out forwards;
+  transform: translateY(-200%);
+  z-index: -1;
+}
+
+@keyframes noose {
+  0%{transform: translateY(-200%);}
+  100%{transform: translateY(-35%);}  
 }
 
 audio{
@@ -72,6 +113,7 @@ audio{
   justify-content: center;
   align-items: center;
   z-index: -1;
+  opacity: 0.9;
 }
 
 .hintClickBox{
@@ -262,6 +304,7 @@ button:hover{
   animation: zoom 0.4s ease-in-out forwards;
   text-shadow: 5px 5px 5px black;
   color: rgb(215, 222, 229);
+  opacity: 0.8;
 }
 
 .victoryFrame h3{
@@ -303,6 +346,7 @@ button:hover{
   letter-spacing: 5px;
   animation: zoom 0.5s ease-in-out forwards;
   margin-top: 35vh;
+  opacity: 0.8;
 }
 
 .defeatFrame h3{
