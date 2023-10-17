@@ -77,21 +77,13 @@ h1{
   align-items: center;
   position: relative;
 }
+
 .noose{
   position: absolute;
   right: -100px;
-  animation: noose 2.5s 1s ease-in-out forwards;
+  animation: noose 2.5s ease-in-out forwards;
   transform: translateY(-200%);
   z-index: -1;
-}
-
-@keyframes noose {
-  0%{transform: translateY(-200%);}
-  100%{transform: translateY(-35%);}  
-}
-
-audio{
-  display: none;
 }
 
 .hint{
@@ -187,7 +179,6 @@ input {
   margin-top: 1rem;
   text-transform: uppercase;
   text-shadow: 1px 1px 2px black;
-/*   box-shadow: 2px 2px 2px black; */
   caret-color: transparent;
   background-color: transparent;
   border: 0;
@@ -372,6 +363,11 @@ h3 {
   font-size: 3.6rem;
   text-align: center;
   margin-bottom: 1rem;
+}
+
+@keyframes noose {
+  0%{transform: translateY(-200%);}
+  100%{transform: translateY(-35%);}  
 }
 
 @keyframes zoom {

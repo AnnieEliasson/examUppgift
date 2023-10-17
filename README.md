@@ -15,3 +15,6 @@ ANNARS OM användaren misslyckas ska en skärm med "Du förlora" dyka upp och fr
 
 
 
+Skapad av:
+
+Annie Eliasson, Philip Jakobsson, Alexander Lindahl

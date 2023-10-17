@@ -9,17 +9,19 @@
   </head>
 
   <body>
-    
     <div class="container">
-      <audio id="bgMusic" src="audio/sad-moment-sad-and-melancholy-piano-background-music-124488.mp3"></audio>
+      <audio
+        id="bgMusic"
+        src="audio/sad-moment-sad-and-melancholy-piano-background-music-124488.mp3"
+      ></audio>
       <audio id="pop" src="audio/pop-up-something-160353.mp3"></audio>
       <audio id="fail" src="audio/sadwhisle-91469.mp3"></audio>
 
       <div class="hintClickBox"></div>
-        <div class="hint">
-          <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-      
+      <div class="hint">
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+
       <p id="timer"></p>
       <p id="pulsingTimer">3</p>
 
@@ -74,7 +76,13 @@
       </svg>
       <section>
         <div class="letterBox"></div>
-        <input id="character" type="text" placeholder=" press keyboard a - z" maxlength="1" onkeydown="return /[a-z]/i.test(event.key)" />
+        <input
+          id="character"
+          type="text"
+          placeholder=" press keyboard a - z"
+          maxlength="1"
+          onkeydown="return /[a-z]/i.test(event.key)"
+        />
         <button id="button" type="submit">Guess!</button>
 
         <div class="wrongCharCntainer">
