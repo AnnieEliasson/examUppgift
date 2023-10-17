@@ -58,6 +58,7 @@ document.addEventListener('keydown', function (enter) {
 
 function checkChar() {
   char = document.getElementById("character").value.toLowerCase()
+  
 
   if (char === "") {
     /* alert("Du måste skriva något i fältet"); */
@@ -73,6 +74,15 @@ function checkChar() {
   } else {
     console.log('bokstaven finns inte med')
     charDoNotExist()
+  }
+
+  //REPEATED CHAR WARNING
+  let char2 = char + 2;
+
+  if (usedChars.includes(char2)) {
+    alert("Du har redan använt bokstaven")
+  } else {
+    usedChars.push(char2);
   }
 
   //RESET INPUT FIELD
