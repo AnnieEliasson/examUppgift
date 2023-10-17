@@ -1,30 +1,30 @@
-let textField = document.getElementById("character")
-textField.focus()
+let textField = document.getElementById("character");
+textField.focus();
+document.addEventListener("click", () => {
+  textField.focus();
+});
 
-let bgMusic = document.getElementById("bgMusic")
+// SOUNDS
+let bgMusic = document.getElementById("bgMusic");
 bgMusic.play();
 let popSound = document.getElementById("pop");
 let failSound = document.getElementById("fail");
 
-
-// start
-
-
-document.addEventListener('click', () => {textField.focus()})
-
 // WORD ARRAY
-const arrayName = ["computer",
+const arrayName = [
+  "computer",
   "pineapple",
   "horse",
   "seal",
   "car",
   "cloud",
   "rainstorm",
-  "javascript"]
+  "javascript",
+];
 
 // RANDOM WORD FROM ARRAY
-let arrayRandom = arrayName[Math.floor(Math.random() * arrayName.length)]
-console.log(arrayRandom)
+let arrayRandom = arrayName[Math.floor(Math.random() * arrayName.length)];
+console.log(arrayRandom);
 
 // WRITE LINES FOR CHARACTERS
 /* let rWord = "";
@@ -36,10 +36,10 @@ document.getElementById("rWord").innerHTML = rWord; */
 // WRITE LINES FOR CHARACTERS, ALT 2
 
 for (let i = 0; i < arrayRandom.length; i++) {
-  let box = document.createElement("div")
-  box.classList.add('box')
-  box.innerText = '_'
-  document.querySelector(".letterBox").append(box)
+  let box = document.createElement("div");
+  box.classList.add("box");
+  box.innerText = "_";
+  document.querySelector(".letterBox").append(box);
 }
 
 //VARIABEL FÖR INMATAD BOKSTAV
@@ -47,165 +47,167 @@ let char;
 
 //GUESS BUTTON
 const button = document.getElementById("button");
-button.addEventListener('click', checkChar)
+button.addEventListener("click", checkChar);
 
-document.addEventListener('keydown', function (enter) {
-  if (enter.key === 'Enter') {
+document.addEventListener("keydown", function (enter) {
+  if (enter.key === "Enter") {
     button.click();
-    console.log("Enter trycktes ner")
   }
 });
 
+// CHECK IF WORD INCLUDES CHAR
 function checkChar() {
-  char = document.getElementById("character").value.toLowerCase()
+  char = document.getElementById("character").value.toLowerCase();
 
   if (char === "") {
     /* alert("Du måste skriva något i fältet"); */
     return;
   }
 
-  let includes = arrayRandom.includes(char)
+  let includes = arrayRandom.includes(char);
 
   if (includes === true) {
-    console.log('bokstaven finns')
-
-    charExist()
+    charExist();
   } else {
-    console.log('bokstaven finns inte med')
-    charDoNotExist()
+    charDoNotExist();
+  }
+
+  //REPEATED CHAR WARNING
+  let char2 = char + 2;
+
+  if (usedChars.includes(char2)) {
+    alert("Du har redan använt bokstaven");
+  } else {
+    usedChars.push(char2);
   }
 
   //RESET INPUT FIELD
-  textField.value = null
-  textField.focus()
+  textField.value = null;
+  textField.focus();
 }
 
 // USED CHARS EXIST IN WORD
-let usedChars = []
+let usedChars = [];
 let victoryCount = 0;
 
-
-
 function charExist() {
-
   if (usedChars.includes(char)) {
     return;
   }
 
-  usedChars.push(char)
-  console.log(usedChars)
+  usedChars.push(char);
 
   for (let i = 0; i <= arrayRandom.length; i++) {
-
     if (arrayRandom[i] === char) {
-      document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText = char
-      victoryCount++
+      document.querySelector(`.letterBox :nth-child(${i + 1})`).innerText =
+        char;
+      victoryCount++;
       popSound.play();
-      console.log(i)
       if (victoryCount === arrayRandom.length) {
-
         document.getElementById("victoryScreen").style.display = "flex";
-        puls.style.display = "none"
-        clearTimeout(timer)
+        puls.style.display = "none";
+        clearTimeout(timer);
 
-        document.addEventListener('keydown', function (enter) {
-          if (enter.key === 'Enter') {
-            location.reload()
+        document.addEventListener("keydown", function (enter) {
+          if (enter.key === "Enter") {
+            location.reload();
           }
         });
-
       }
     }
   }
 }
 
-let wrongChars = []
+//DOES NOT EXIST
+
+let wrongChars = [];
 let wrongs = 0;
 function charDoNotExist() {
-
   if (wrongChars.includes(char)) {
     return;
   }
 
-  wrongChars.push(char)
-  console.log(wrongChars)
+  wrongChars.push(char);
 
-  document.getElementById("worngChars").innerText = wrongChars
-  wrongs++
-  failSound.play()
-  console.log(wrongs)
+  document.getElementById("worngChars").innerText = wrongChars;
+  wrongs++;
+  failSound.play();
 
   //DISPLAY HANGMAN PARTS
 
   switch (wrongs) {
     case 1:
-      document.getElementById("ground").style.display = "block"
-      document.querySelector(`.health :nth-child(6)`).classList.add("wasted")
+      document.getElementById("ground").style.display = "block";
+      document.querySelector(`.health :nth-child(6)`).classList.add("wasted");
       break;
     case 2:
-      document.getElementById("scaffold").style.display = "block"
-      document.querySelector(`.health :nth-child(5)`).classList.add("wasted")
+      document.getElementById("scaffold").style.display = "block";
+      document.querySelector(`.health :nth-child(5)`).classList.add("wasted");
       break;
     case 3:
-      document.getElementById("head").style.display = "block"
-      document.querySelector(`.health :nth-child(4)`).classList.add("wasted")
+      document.getElementById("head").style.display = "block";
+      document.querySelector(`.health :nth-child(4)`).classList.add("wasted");
       break;
     case 4:
-      document.getElementById("body").style.display = "block"
-      document.querySelector(`.health :nth-child(3)`).classList.add("wasted")
+      document.getElementById("body").style.display = "block";
+      document.querySelector(`.health :nth-child(3)`).classList.add("wasted");
       break;
     case 5:
-      document.getElementById("arms").style.display = "block"
-      document.querySelector(`.health :nth-child(2)`).classList.add("wasted")
+      document.getElementById("arms").style.display = "block";
+      document.querySelector(`.health :nth-child(2)`).classList.add("wasted");
       break;
     case 6:
-      document.getElementById("legs").style.display = "block"
-      document.querySelector(`.health :nth-child(1)`).classList.add("wasted")
-      puls.style.display = "none"
+      document.getElementById("legs").style.display = "block";
+      document.querySelector(`.health :nth-child(1)`).classList.add("wasted");
+      puls.style.display = "none";
       document.getElementById("defeatScreen").style.display = "flex";
-      document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
-      clearTimeout(timer)
-      document.addEventListener('keydown', function (enter) {
-        if (enter.key === 'Enter') {
-          location.reload()
+      document.getElementById("correctWord").innerText =
+        arrayRandom.toUpperCase();
+      clearTimeout(timer);
+      document.addEventListener("keydown", function (enter) {
+        if (enter.key === "Enter") {
+          location.reload();
         }
       });
       break;
     default:
   }
-
 }
-
 
 // Play Again Button
 
-let playAgainButton = document.querySelectorAll(".playAgainButton")
-playAgainButton.forEach((btn) => btn.addEventListener('click', function () { location.reload() }))
+let playAgainButton = document.querySelectorAll(".playAgainButton");
+playAgainButton.forEach((btn) =>
+  btn.addEventListener("click", function () {
+    location.reload();
+  })
+);
 
 // TIMER
 
 let countDown = 60;
-let timer = setTimeout(ticks, 1000)
-let timeDisplay = document.getElementById("timer")
-let puls = document.getElementById("pulsingTimer")
+let timer = setTimeout(ticks, 1000);
+let timeDisplay = document.getElementById("timer");
+let puls = document.getElementById("pulsingTimer");
 
-function ticks(){
-  if(countDown >= 4){
-    timeDisplay.innerText = countDown
-    countDown--
-    timer = setTimeout(ticks, 1000)
-  } else if(countDown >= 0) {
-    puls.style.display = "block"
-    puls.innerText = countDown
-    timeDisplay.innerText = countDown
-    countDown--
-    timer = setTimeout(ticks, 1000)
+function ticks() {
+  if (countDown >= 4) {
+    timeDisplay.innerText = countDown;
+    countDown--;
+    timer = setTimeout(ticks, 1000);
+  } else if (countDown >= 0) {
+    puls.style.display = "block";
+    puls.innerText = countDown;
+    timeDisplay.innerText = countDown;
+    countDown--;
+    timer = setTimeout(ticks, 1000);
   } else {
     document.getElementById("defeatScreen").style.display = "flex";
-    document.getElementById("correctWord").innerText = arrayRandom.toUpperCase()
-    document.addEventListener('keydown', function (enter) {
-      if (enter.key === 'Enter') {
-        location.reload()
+    document.getElementById("correctWord").innerText =
+      arrayRandom.toUpperCase();
+    document.addEventListener("keydown", function (enter) {
+      if (enter.key === "Enter") {
+        location.reload();
       }
     });
   }
@@ -213,25 +215,14 @@ function ticks(){
 
 // HINT
 
-let hint = document.querySelector('.hint')
-let clickBox = document.querySelector('.hintClickBox')
+let hint = document.querySelector(".hint");
+let clickBox = document.querySelector(".hintClickBox");
 
-clickBox.addEventListener('click', function(){
+clickBox.addEventListener("click", function () {
+  hint.classList.add("peak");
+  document.getElementById("character").focus();
 
-    hint.classList.add("peak")
-    document.getElementById("character").focus()
-
-    setTimeout(() => {
-      hint.classList.remove("peak")
-    }, 4000)
-    
-})
-
-// MUSIC 
-
-/* window.addEventListener("DOMContentLoaded", event => {
-  const audio = document.querySelector("audio");
-  audio.volume = 0.2;
-  audio.play();
+  setTimeout(() => {
+    hint.classList.remove("peak");
+  }, 4000);
 });
- */
